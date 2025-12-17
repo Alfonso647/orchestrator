@@ -1,4 +1,4 @@
-// services/orchestratorService.js
+// services/fetchAcquire.js
 const ACQUIRE_URL = "http://localhost:3001/data"; // URL del servicio Acquire
 
 /**
@@ -31,6 +31,4 @@ async function fetchAcquire() {
   return json; // { dataId, features, featureCount, scalerVersion, createdAt }
 }
 
-module.exports = {
-  fetchAcquire
-};
+module.exports = fetchAcquire;

@@ -1,5 +1,5 @@
-// services/orchestratorService.js
-const PREDICT_URL = "http://localhost:3002/data"; // URL del servicio Predict
+// services/fetchPredict.js
+const PREDICT_URL = "http://localhost:3002/predict"; // URL del servicio Predict
 
 /**
  * Llama al servicio Predict con features y meta.dataId
@@ -39,7 +39,4 @@ async function fetchPredict(features, dataId) {
   return json; // { predictionId, prediction, timestamp }
 }
 
-module.exports = {
-  fetchAcquire,
-  fetchPredict
-};
+module.exports = fetchPredict;
