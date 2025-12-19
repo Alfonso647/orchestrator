@@ -18,7 +18,6 @@ function health(req, res) {
  */
 async function run(req, res) {
   try {
-    // 1) Llamar a Acquire para obtener datos nuevos
     const acquireData = await fetchAcquire();
 
     const { dataId, features } = acquireData;
@@ -27,12 +26,10 @@ async function run(req, res) {
       return res.status(502).json({ error: "Invalid response from Acquire" });
     }
 
-    // 2) Llamar a Predict usando las features y el dataId
     const predictData = await fetchPredict(features, dataId);
 
     const { predictionId, prediction, timestamp } = predictData;
 
-    // 3) Devolver respuesta compacta al frontend
     res.status(200).json({
       dataId,
       predictionId,

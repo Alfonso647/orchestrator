@@ -1,5 +1,5 @@
 // services/fetchPredict.js
-const PREDICT_URL = "http://localhost:3002/predict"; // URL del servicio Predict
+const PREDICT_URL = "http://localhost:3002/predict"; 
 
 /**
  * Llama al servicio Predict con features y meta.dataId
@@ -31,12 +31,11 @@ async function fetchPredict(features, dataId) {
 
   const json = await response.json();
 
-  // Validamos que la respuesta tenga predictionId y prediction
   if (!json.predictionId || typeof json.prediction !== "number") {
     throw new Error("PREDICT_INVALID_RESULT");
   }
 
-  return json; // { predictionId, prediction, timestamp }
+  return json; 
 }
 
 module.exports = fetchPredict;
